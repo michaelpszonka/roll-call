@@ -1,26 +1,25 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Container} from 'react-bootstrap';
+import { Switch, Route } from 'react-router-dom';
+import NavigationBar from './components/common/NavigationBar';
+import MemberPage from './containers/Members/MemberPage';
+import VotePage from './containers/Votes/VotePage';
+import BillPage from './containers/Bills/BillPage';
 
-function App() {
+
+const App = (props) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <NavigationBar />
+      <Switch>
+        <Route path="/members" component={MemberPage}></Route>
+        <Route path="/bills" component={BillPage}></Route>
+        <Route path="/votes" component={VotePage}></Route>
+      </Switch>
     </div>
-  );
+    );
 }
 
 export default App;
